@@ -1,0 +1,15 @@
+#!/bin/bash
+
+directory_count=0
+message_count=0
+#loop over all of the directories in the archive.
+for dir in $ARCHIVE/*
+do
+    let directory_count+=1
+    #loop over all of the files in given directory.
+    for file in $dir/*
+    do
+        let message_count+=1
+    done
+done
+echo $directory_count $message_count

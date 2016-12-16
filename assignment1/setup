@@ -1,0 +1,7 @@
+#!/bin/bash
+
+ARCHIVE=/home/kschmidt/public_html/Files/DrMathArchive
+export ARCHIVE
+
+./prob4.bash 
+

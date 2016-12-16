@@ -1,0 +1,14 @@
+Derek Mallon
+CS 265
+Section 004
+
+NOTE all scripts need the ARCHIVE variable to be set to a directory with sub directories and messages in those subdirectories.
+NOTE when using the real ARCHIVE scripts prob2-4 are going to take some time to complete given the amount of messages.
+
+-prob1 This script counts all of the directories and then count all of the files (i.e messages) inside those directories. It prints first the total number of directories and then the total number of files.
+
+-prob2 This script looks through an find the longest message threads. It prints a list of threads that have the most amount of messages, finally it then prints out the number of those messages.
+
+-prob3 This script uses a set of 3 arguments to find all messages which were time stamped with the given date. The first argument is the date's year the second argument is the date's month, and finally the third argument is the date's day. The script prints out all the messages which have the given date as a time stamp.
+
+-prob4 This script extracts the hostnames from the To: line of the email messages and then counts all of the unique mentions. It prints out a list of the hostnames and the amount messages which were send to them. Finally it prints out the number of unique hostnames appear in the given set of emails.

@@ -1,0 +1,5 @@
+Derek Mallon
+CS 265
+November 2nd 2016
+
+I used Python classes instead of tuples to represent the moves because I think it is easier to have named attributes instead of remembering which index the x and which index is the y.

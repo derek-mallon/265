@@ -1,0 +1,21 @@
+#!/bin/bash
+#Derek Mallon
+#CS265
+touch tmpfile
+#loop over all of the directories in the archive
+for DIR in $ARCHIVE/*
+do
+    #loop over all of the files in the archive
+    for FILE in $DIR/*
+    do
+        #extract the hostname and append it to a tmp file
+        grep 'To:' $FILE | grep '@' | awk '{print $2}' | awk 'BEGIN{FS="@"} {print $2}' >> tmpfile
+    done
+done
+#convert the hostnames in to all lower case, then sort and remove + count dupilcates, finally sort again by count and save to a new tmpfile.
+tr '[:upper:]' '[:lower:]' < tmpfile | sort  | uniq -cd | sort -gr > tmpfile 
+#switch the column of the tmp file and print out the result
+awk '{print $2 " " $1}' tmpfile
+#count the lines in the tmp file and print out the total number for the number of unique domains
+wc -l tmpfile | awk '{print "total " $1}'
+rm -f tmpfile

@@ -1,0 +1,19 @@
+#!/bin/bash 
+#Derek Mallon
+#cs265
+touch tmpfile
+#loop over all of the directories
+for dir in $ARCHIVE/*
+do
+    #loop over all of the files
+    for file in $dir/*
+    do
+        #extract the file name and thread number then append the thread number to a tmp file
+        file_name=${file##*/}
+        thread_number=${file_name%_*}
+        echo "$thread_number" >> tmpfile
+    done
+done
+#use uniq to count the repeated threads then sort and pass to awk to list the thread which are part of that group that has the most amount of messages
+sort tmpfile | uniq -c | sort -r | awk 'BEGIN{numb=0;} NR==1{numb=$1;} { if ($1==numb)print $2;} END{print "number of messages: " numb;}'
+rm -f tmpfile

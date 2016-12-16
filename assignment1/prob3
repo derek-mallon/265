@@ -1,0 +1,20 @@
+#!/bin/bash
+#Read in arugments
+YEAR=${1?Please enter a year!}
+MONTH=${2?Please enter a month!}
+DAY=${3?Please enter a day!}
+#loop over all of the directories
+for DIR in $ARCHIVE/* 
+do
+    #loop over all of the files
+    for FILE in $DIR/* 
+    do 
+        #loop for a match on the time stamp
+        MATCH=$(grep TimeStamp $FILE | awk '{print $2;}' | awk -v YEAR="$YEAR" -v MONTH="$MONTH" -v DAY=$DAY 'BEGIN{FS="/";} {if(DAY==$2 && MONTH==$1 && YEAR==$3) print "true";}')
+        #if there is a match print out the file
+        if [ "$MATCH" == "true" ] 
+            then 
+            cat "$FILE" 
+        fi 
+    done
+done

@@ -1,0 +1,5 @@
+Derek Mallon
+CS 265
+December 5th 2016
+
+The only thing is that I use quite a few global variables to store the state throughout the running of the program. This is probably not the best practice for larger stuff but I think it's justifiable here because of the small scope of the script
